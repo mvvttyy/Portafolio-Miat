@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="navbar" aria-label="Navegación principal">
         <ul className="nav-links">
           <li>
-            <a href="https://instagram.com/mattiarcos"  target="_blank" rel="noopener noreferrer" aria-label="Perfil de Instagram de Matías Arcos">
+            <a href="https://instagram.com/mattiarcos" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Instagram de Matías Arcos">
               <FaInstagram className="social-icon" />
              
             </a>

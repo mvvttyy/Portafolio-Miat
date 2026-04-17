@@ -1,0 +1,365 @@
+.home-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+  filter: blur(10px); /* Aplica el blur directamente al video */
+}
+
+/* Alternativa: si prefieres usar el pseudo-elemento */
+.video-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 1;
+}
+
+.hero-section, 
+.featured-section, 
+.recent-projects-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 4rem;
+  
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+}
+
+.project-card {
+  width: 100%;
+  max-width: 300px;
+}
+
+.spotify-embed-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .spotify-embed-container {
+    max-width: 100%;
+  }
+}
+
+.hero-section {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  background-image: url('../assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.5s ease;
+  overflow: hidden; /* Importante para contener el efecto */
+}
+
+/* Mantenemos el efecto de escala al hacer hover */
+.hero-section:hover {
+  transform: scale(1.02);
+}
+
+/* Creamos un contenedor para el fondo con parallax */
+.hero-parallax-bg {
+  position: absolute;
+  top: -20px; /* Margen extra para el movimiento */
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background-image: url('../assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.1s ease-out;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 5rem;
+  margin-top: 20rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #02994d, #01aa77);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.3s ease;
+}
+
+.hero-section h1:hover {
+  transform: scale(1.05);
+}
+
+.featured-section h2,
+.recent-projects-section h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.project-card h3 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+.project-card h4 {
+    margin-top: -1rem;
+    font-size: 1rem;
+    letter-spacing: 0px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #cacaca;
+    font-weight: 100;
+  }
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--gray-text);
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Sección de Pista Destacada */
+.featured-section {
+  padding: 1rem 0;
+  background-color: #18181800;
+}
+
+.featured-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+/* Sección de Proyectos Recientes */
+.recent-projects-section {
+  padding: 1rem 0;
+}
+
+.recent-projects-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #181818;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+
+.project-card-link:hover {
+  color: #02994d;
+  text-decoration: none;
+}
+
+/* Opcional: Agregar un indicador visual de que es clickeable */
+.project-card {
+  cursor: pointer;
+  position: relative;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 153, 77, 0);
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project-card:hover::after {
+  background-color: rgba(2, 153, 77, 0.1);
+}
+
+.project-image {
+  height: 200px;
+  background-color: #333;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-card h3 {
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  padding: 0 1rem 1rem;
+  color: var(--gray-text);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-buttons a {
+    width: 80%;
+  }
+}
+
+
+/* Estilos personalizados para los botones en la sección hero */
+.hero-section .primary-btn {
+  background-color: #02994d;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.hero-section .primary-btn:hover {
+  background-color: #01aa77;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(1, 170, 119, 0.4);
+}
+
+.hero-section .secondary-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid #02994d;
+  transition: all 0.3s ease;
+}
+
+.hero-section .secondary-btn:hover {
+  background-color: rgba(2, 153, 77, 0.2);
+  border-color: #01aa77;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(1, 170, 119, 0.2);
+}
+
+
+.video-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según necesites */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.project-video {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  background-color: #333;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-video {
+  transform: scale(1.2);
+}
+
+
+/* Footer */
+.footer {
+  width: 100%;
+  padding: 2rem 0;
+  text-align: center;
+  color: #cacaca;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.footer p {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ajuste para compensar la altura del encabezado fijo si lo tienes */
+#portfolio {
+  scroll-margin-top: 80px; /* Ajusta este valor según la altura de tu encabezado */
+}

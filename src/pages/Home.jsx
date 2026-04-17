@@ -63,7 +63,7 @@ const Home = () => {
       <section className="hero-section">
         <div className="hero-parallax-bg" ref={parallaxRef}></div>
         <div className="container">
-          <h1>Matías "Miattu" Arcos</h1>
+          <h1>Matías "Matti" Arcos</h1>
           <p className="tagline">Productor Musical | Ingeniero de Mezcla y Mastering | Sonidista FOH</p>
           
           <div className="cta-buttons">
